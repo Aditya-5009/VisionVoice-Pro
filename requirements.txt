@@ -1,0 +1,10 @@
+streamlit
+google-generativeai
+Pillow
+gtts
+easyocr
+ultralytics
+numpy
+opencv-python-headless
+torch
+torchvision
