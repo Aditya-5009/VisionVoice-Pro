@@ -1,0 +1,29 @@
+# Python
+_pycache_/
+*.pyc
+*.pyo
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Generated files (app outputs)
+*.mp3
+temp_image.jpg
+annotated_image.jpg
+
+# Model files (too big for git)
+*.pt
+
+# Logs
+*.log
