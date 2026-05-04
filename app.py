@@ -431,21 +431,28 @@ def get_detail_prompt(level, lang_name, include_hazards, include_colors, include
     return prompt
 
 def get_gemini_model():
-    """Get Gemini model with fallback options"""
+    """Get Gemini model with fallback options.
+
+    Note: Gemini 1.5 models were shut down in Sept 2025.
+    Gemini 2.0 Flash will shut down June 1, 2026.
+    Use Gemini 2.5 Flash as the primary stable model.
+    """
     model_options = [
-        'gemini-2.0-flash-exp',
-        'gemini-1.5-flash-latest',
-        'gemini-1.5-flash',
-        'gemini-pro-vision',
+        'gemini-2.5-flash',
+        'gemini-2.5-pro',
+        'gemini-flash-latest',
+        'gemini-pro-latest',
     ]
-    
+
     for model_name in model_options:
         try:
             model = genai.GenerativeModel(model_name)
+            # Validate by making a tiny test call
+            test = model.generate_content("ok")
             return model, model_name
-        except:
+        except Exception:
             continue
-    
+
     return None, None
 
 # ==================== TAB 1: UPLOAD ====================
